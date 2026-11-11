@@ -42,6 +42,9 @@ Run times: one MPC window about 4-5 s; the complete experiment set takes many ho
 ## About the pre-registration dates
 The rule files in `preregistrations/` were written before the corresponding runs (see the file modification times in the original project folder and the order of the reports). A public repository can only prove dates from its own first commit onwards, so the repository history documents the release, not the original writing time. Anyone re-running the study should commit their own rule files before running.
 
+## Acknowledgements
+Vehicle model fitted to the BMW i3 dataset of Steinstraeter, Buberger and Trifonov, "Battery and Heating Data in Real Driving Cycles", IEEE DataPort, 2020, doi:10.21227/6jr9-5235 (CC BY 4.0). Raw files are not redistributed. See `DATA_SOURCES.md` for all data sources and citations.
+
 ## Licence
 Code: MIT (`LICENSE`). Our own result tables and derived files: CC BY 4.0. Third-party data keeps its own terms (DATA_SOURCES.md). **TODO before upload: confirm licences and author list with all co-authors.**
 
