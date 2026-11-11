@@ -1,0 +1,10 @@
+S1b (42 windows, mean lead speed <=20 m/s). Change vs ACC-map.
+arm           n    Wh/km  vsACCmap        p  unsafe shortmx   jerk crossEx    dmin
+acc_map      42   139.74    +0.00%      nan       0    0.00   0.67    1.22    5.00
+cacc_map     42   140.95    -1.69%   0.0105      19    0.55   0.90    1.47    2.58
+mpc_map      42   150.44    +6.57%   0.0000       2    0.15   0.78    0.00    4.02
+mpc_map_L    42   127.22    -7.40%   0.0000       0    0.01   0.75    0.00    4.02
+oracle_map   42   115.99   -17.80%   0.0000       0    0.03   0.73    0.00    4.01
+
+S1b PRIMARY RULE (MPC-map-L vs ACC-map): median dWh/km -7.40% (need <=-1.0) True; crossing excess 0.00 vs 1.22+0.3 True; unsafe 0 vs 0 True; Wilcoxon p=0.0000 True => PASS
+windows where MPC-map-L beats ACC-map: 38/42

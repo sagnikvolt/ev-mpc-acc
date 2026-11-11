@@ -1,0 +1,8 @@
+S2 cut-ins (45 windows), fixed safety metrics (cut-in gap excluded: shortfall_post = max shortfall excluding 5 s after each cut-in)
+arm           n    Wh/km    vsACC%       p unsafe_p short_post    rec_s  unrec
+acc          45   187.97    +0.00%     nan        0      0.00     2.47      1
+cacc         45   188.82    -0.76%   0.030        9      0.21     2.44      1
+smc          45   158.00   -12.13%   0.000       34      8.19     8.08     24
+mpc_const    45   188.34    +0.48%   0.134        1      0.22     2.51      1
+mpc_v2v_ml   45   187.02    -1.11%   0.062        2      0.10     2.48      1
+oracle       45   175.25   -11.21%   0.000        0      0.01     2.16      1

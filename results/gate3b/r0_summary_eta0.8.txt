@@ -1,0 +1,12 @@
+REGEN eta=0.8, cap 35 kW, fade<3 m/s ; windows n=54 (stride 3) ; Wh/km KE-adj
+controller                           Wh/km med vs MPC    gap m   jerk unsafe (max shortfall m)
+Conventional ACC                    142.93    -0.47%     38.7   0.22     0 (0.0)
+SMC                                 143.70    -0.00%     38.6   0.26     0 (0.0)
+SAC (legacy-trained, eval only)     144.37     0.63%     40.1   0.29     3 (0.7)
+MPC const-speed (regen-aware)       144.01     0.00%     31.9   0.27     0 (0.2)
+MPC oracle preview (non-causal)     138.27    -2.75%     32.2   0.21     0 (0.1)
+oracle vs ACC: median -1.99% mean -3.81% p=1.3e-09
+MPC const vs ACC: median 0.47% mean 0.72% p=6.3e-05
+calm     n=14 median vs ACC: MPC-const 0.15% oracle -0.82% smc 0.36%
+medium   n=20 median vs ACC: MPC-const 0.77% oracle -2.13% smc 0.68%
+dynamic  n=20 median vs ACC: MPC-const 0.67% oracle -6.28% smc 0.77%

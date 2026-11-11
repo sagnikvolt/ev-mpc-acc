@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite it (and the third-party datasets in DATA_SOURCES.md)."
+title: "Battery-aware MPC adaptive cruise control for EVs: code, pre-registrations, results and derived data"
+version: "0.1-draft"
+date-released: "2026-11-09"
+authors:
+  - family-names: Nath
+    given-names: Sagnik Kumar
+    affiliation: "Institute of Engineering & Management (IEM), Kolkata"
+  # TODO: add the other authors and ORCIDs agreed with sir before upload
+license: MIT
+repository-code: "https://github.com/sagnikvolt/ev-mpc-acc"
+doi: "TODO: assigned by Zenodo on upload"

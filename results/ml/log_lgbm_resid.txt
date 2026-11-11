@@ -1,0 +1,6 @@
+lgbm resid fold 0 rmse 3.75 kW r2 0.930 trip med|e| 9.4%
+lgbm resid fold 1 rmse 4.54 kW r2 0.917 trip med|e| 4.4%
+lgbm resid fold 2 rmse 4.17 kW r2 0.937 trip med|e| 4.7%
+lgbm resid fold 3 rmse 4.17 kW r2 0.911 trip med|e| 3.2%
+lgbm resid fold 4 rmse 3.52 kW r2 0.923 trip med|e| 2.3%
+SUMMARY lgbm resid {'rmse_kw': 4.029, 'rmse_kw_sd': 0.356, 'mae_kw': 2.449, 'r2': 0.923, 'trip_med_abs': 4.819, 'trip_mean_abs': 7.618, 'trip_p90': 16.551, 'pooled': 0.912, 'within5': 50.0, 'train_s': 2.455, 'infer_us': 4.997}

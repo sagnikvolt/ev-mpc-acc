@@ -1,0 +1,7 @@
+pooled test: oracle vs const -2.06%, vs caccel -2.34%
+Spearman saving vs lead accel RMS: rho -0.70 p 4.6e-25 ; vs vstd rho -0.42 ; vs vmean rho 0.37
+          n  acc_rms  vmean  median  mean
+q                                        
+calm     53     0.22  25.99   -0.25 -0.66
+medium   54     0.35  23.55   -1.79 -2.06
+dynamic  53     0.55  19.76   -4.50 -5.35

@@ -1,0 +1,85 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Battery-aware MPC-ACC demo (zip Lambda, no Docker). Deploy ONLY through this template.
+
+Parameters:
+  CodeBucket:
+    Type: String
+    Description: S3 bucket (same region) holding the code zip
+  CodeKey:
+    Type: String
+    Default: ev-demo-lambda.zip
+  AlertEmail:
+    Type: String
+    Description: Email that gets the budget alert
+  MonthlyBudgetUSD:
+    Type: Number
+    Default: 1
+  AllowedOrigin:
+    Type: String
+    Default: '*'
+    Description: Website origin allowed to call the API
+
+Resources:
+  SimulateLogs:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      RetentionInDays: 14
+
+  SimulateFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.12
+      Architectures: [x86_64]
+      Handler: handler.lambda_handler
+      CodeUri:
+        Bucket: !Ref CodeBucket
+        Key: !Ref CodeKey
+      MemorySize: 2048
+      Timeout: 28
+      LoggingConfig:
+        LogGroup: !Ref SimulateLogs
+      Events:
+        Simulate:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref DemoApi
+            Method: POST
+            Path: /simulate
+
+  DemoApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      CorsConfiguration:
+        AllowOrigins: [!Ref AllowedOrigin]
+        AllowMethods: [POST, OPTIONS]
+        AllowHeaders: [content-type]
+        MaxAge: 600
+      DefaultRouteSettings:
+        ThrottlingBurstLimit: 2
+        ThrottlingRateLimit: 1
+
+  MonthlyBudget:
+    Type: AWS::Budgets::Budget
+    Properties:
+      Budget:
+        BudgetName: ev-mpc-acc-demo
+        BudgetType: COST
+        TimeUnit: MONTHLY
+        BudgetLimit:
+          Amount: !Ref MonthlyBudgetUSD
+          Unit: USD
+      NotificationsWithSubscribers:
+        - Notification:
+            NotificationType: ACTUAL
+            ComparisonOperator: GREATER_THAN
+            Threshold: 80
+            ThresholdType: PERCENTAGE
+          Subscribers:
+            - SubscriptionType: EMAIL
+              Address: !Ref AlertEmail
+
+Outputs:
+  SimulateUrl:
+    Description: Paste into web/config.js as API_URL
+    Value: !Sub 'https://${DemoApi}.execute-api.${AWS::Region}.amazonaws.com/simulate'

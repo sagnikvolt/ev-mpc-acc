@@ -1,0 +1,14 @@
+R1 (alpha .5, beta .5; frozen from fold-0 tuning) on TEST folds, n=160. Energy vs best kinematic per window.
+oracle  median  -1.72% mean  -2.69% better 147/160 p=4.1e-26 | headroom recovered  100.0% | dynamic tercile recovered  100.0%
+lgbm    median   0.03% mean   0.09% better  66/160 p=1.1e-02 | headroom recovered   -3.9% | dynamic tercile recovered   -2.8%
+bilstm  median   0.01% mean   0.03% better  74/160 p=2.6e-01 | headroom recovered   -2.1% | dynamic tercile recovered   -2.0%
+calm n 53 oracle med -0.25% mean -0.66% lgbm med 0.03% mean 0.07% bilstm med 0.01% mean 0.03%
+medium n 53 oracle med -1.79% mean -2.08% lgbm med 0.03% mean 0.06% bilstm med 0.01% mean 0.01%
+dynamic n 54 oracle med -4.35% mean -5.27% lgbm med 0.04% mean 0.14% bilstm med -0.03% mean 0.06%
+safety (windows shortfall>0.5m, max m, gap<3m) | jerk
+ const   3  14.1  0 | 0.27
+ caccel  3  8.2  0 | 0.43
+ lgbm    3  8.8  0 | 0.33
+ bilstm  4  11.3  0 | 0.32
+ oracle  0  0.1  0 | 0.22
+PASS test lgbm? dyn>=25%: False ; median<=0: False

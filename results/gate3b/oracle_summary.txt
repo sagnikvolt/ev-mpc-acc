@@ -1,0 +1,13 @@
+Gate 3B step C: oracle-preview vs constant-speed-preview MPC; 78 windows x 120 s, real OpenACC lead trajectories (human-driven platoon leaders)
+Wh/km: mean -3.28%  median -2.18%  p10 -8.1%  p90 -0.1%  oracle better in 72/78  Wilcoxon p=9.4e-14
+Wh/km, end-speed KE-adjusted: mean -3.15%  median -2.12%  p10 -6.9%  p90 -0.1%  oracle better in 73/78  Wilcoxon p=4.1e-14
+pooled Wh/km change -3.10%
+const : windows with soft-margin shortfall >0.5 m: 5 ; max shortfall 28.1 m ; windows with min gap <3 m: 3 ; solver failures 0 ; mean jerk RMS 0.32
+oracle : windows with soft-margin shortfall >0.5 m: 0 ; max shortfall 0.1 m ; windows with min gap <3 m: 0 ; solver failures 0 ; mean jerk RMS 0.26
+                n  mean_pct  median_pct
+campaign                               
+Casale         10     -2.38       -1.65
+Cherasco       29     -1.94       -1.73
+JRC low speed   3     -4.60       -3.09
+Vicolungo      18     -5.14       -4.22
+ZalaZone       18     -3.27       -2.64

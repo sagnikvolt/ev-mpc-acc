@@ -1,0 +1,17 @@
+windows total 203 test (folds 1-4) 160 ; solver fails 36
+--- TEST folds only
+const-accel vs const-speed         median   0.28% mean   0.75% better  41/160 Wilcoxon p=6.2e-12
+ORACLE vs const-speed              median  -1.78% mean  -2.76% better 150/160 Wilcoxon p=5.3e-27
+ORACLE vs const-accel              median  -2.09% mean  -3.44% better 152/160 Wilcoxon p=4.6e-27
+--- per test fold (oracle vs best kinematic = min(const,caccel) per window)
+ fold 1 24_9_2018 n 58 median -1.47% mean -2.20%
+ fold 2 30_8_2018 n 37 median -1.29% mean -2.21%
+ fold 3 9_10_2019 n 40 median -2.87% mean -4.43%
+ fold 4 27_10_2020 n 25 median -1.42% mean -1.73%
+const test: windows shortfall>0.5m 3 max 14.1 m | min gap<3 m: 0 | jerk 0.27
+caccel test: windows shortfall>0.5m 3 max 8.2 m | min gap<3 m: 0 | jerk 0.43
+oracle test: windows shortfall>0.5m 0 max 0.1 m | min gap<3 m: 0 | jerk 0.22
+--- unsafe kinematic windows (test):
+ win 112 Vicolungo 26_2_2019 vmean 0.0 short const 7.5 caccel 1.9 oracle 0.0 dmin 9.1/16.3/25.2
+ win 129 Vicolungo 26_2_2019 vmean 0.0 short const 9.5 caccel 6.1 oracle 0.0 dmin 9.2/12.5/28.5
+ win 130 Vicolungo 26_2_2019 vmean 0.0 short const 14.1 caccel 8.2 oracle 0.0 dmin 4.9/10.9/28.8

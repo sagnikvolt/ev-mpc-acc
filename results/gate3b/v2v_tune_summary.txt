@@ -1,0 +1,13 @@
+V2V TUNE (fold 0, 30 windows, eta .65) score = Wh/km + 2*shortfall; jerk limit .45
+arm      cfg         Wh/km  short   jerk  score
+acc                 125.49   0.00   0.27 125.49
+cacc                123.27   0.04   0.41 123.35
+const               128.50   0.00   0.38 128.51
+kin                 127.06   0.03   0.62 127.13
+oracle              108.78   0.00   0.30 108.79
+ml       a0.5 b0.0  125.09   0.00   0.54 125.09
+ml       a0.5 b0.5  124.74   0.01   0.38 124.75
+ml       a1.0 b0.0  127.12   0.01   0.76 127.14
+ml       a1.0 b0.5  123.70   0.01   0.54 123.72
+CHOSEN ML config a0.5 b0.5 score 124.75
+best of kin vs ML on fold 0 (rule: design = lower score): ml a0.5 b0.5

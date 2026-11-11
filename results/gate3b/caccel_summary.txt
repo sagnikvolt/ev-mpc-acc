@@ -1,0 +1,7 @@
+78 windows
+const-accel vs const-speed: median 0.16% mean 0.54% better 30/78 p=9.1e-03
+ORACLE vs const-accel (true headroom for ML): median -2.50% mean -3.64% better 75/78 p=2.3e-14
+oracle vs const-speed: median -2.12% mean -3.15% better 73/78 p=4.1e-14
+const shortfall>0.5m windows 5 max 28.1 m; gap<3m 3; jerk 0.32
+ca shortfall>0.5m windows 5 max 25.8 m; gap<3m 1; jerk 0.43
+oracle shortfall>0.5m windows 0 max 0.1 m; gap<3m 0; jerk 0.26

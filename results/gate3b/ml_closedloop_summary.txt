@@ -1,0 +1,14 @@
+TEST windows 160 ; energy = Wh/km (KE-adjusted) vs best kinematic per window (negative = saves)
+oracle  median  -1.72% mean  -2.69% better 147/160 p=4.1e-26 | share of oracle headroom recovered 100.0%
+lgbm    median   2.25% mean   3.73% better  13/160 p=6.7e-26 | share of oracle headroom recovered -135.5%
+bilstm  median   1.58% mean   3.28% better  14/160 p=3.5e-25 | share of oracle headroom recovered -115.6%
+--- by dynamics tercile (share of oracle headroom recovered, mean savings %)
+calm n 53 | oracle mean -0.66% med -0.25% | lgbm mean 1.54% med 0.82% | bilstm mean 1.21% med 0.43% | recovered lgbm -315% bilstm -247%
+medium n 53 | oracle mean -2.08% med -1.79% | lgbm mean 3.58% med 2.74% | bilstm mean 2.90% med 1.68% | recovered lgbm -164% bilstm -128%
+dynamic n 54 | oracle mean -5.27% med -4.35% | lgbm mean 6.03% med 3.30% | bilstm mean 5.67% med 2.92% | recovered lgbm -103% bilstm -95%
+--- safety (test): windows with shortfall>0.5 m, max shortfall, windows gap<3 m
+ const   3  14.1 m  0  jerk 0.27
+ caccel  3  8.2 m  0  jerk 0.43
+ lgbm    1  1.6 m  0  jerk 0.76
+ bilstm  1  1.9 m  0  jerk 0.71
+ oracle  0  0.1 m  0  jerk 0.22

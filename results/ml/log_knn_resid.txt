@@ -1,0 +1,6 @@
+knn resid fold 0 rmse 3.84 kW r2 0.927 trip med|e| 5.6%
+knn resid fold 1 rmse 4.62 kW r2 0.914 trip med|e| 2.8%
+knn resid fold 2 rmse 4.43 kW r2 0.928 trip med|e| 5.4%
+knn resid fold 3 rmse 4.28 kW r2 0.906 trip med|e| 8.6%
+knn resid fold 4 rmse 3.71 kW r2 0.914 trip med|e| 2.9%
+SUMMARY knn resid {'rmse_kw': 4.176, 'rmse_kw_sd': 0.346, 'mae_kw': 2.545, 'r2': 0.918, 'trip_med_abs': 4.068, 'trip_mean_abs': 6.387, 'trip_p90': 14.815, 'pooled': -1.057, 'within5': 55.882, 'train_s': 0.398, 'infer_us': 197.34}

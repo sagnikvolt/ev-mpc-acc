@@ -1,0 +1,13 @@
+CONTROLLER COMPARISON, 160 TEST windows (held-out days). Energy Wh/km (KE-adjusted); change vs MPC(const-speed)
+controller                                             Wh/km   med chg    gap m  dmin m   jerk unsafe (max shortfall)
+Conventional ACC (PD, const time-gap)                 138.20    -0.49%     39.6    30.0   0.21     0 (0.0 m)
+SMC                                                   138.68    -0.29%     39.5    30.7   0.24     0 (0.0 m)
+SAC (RL)                                              138.96    -0.26%     41.2    30.6   0.26     7 (1.5 m)
+Battery-aware MPC, const-speed preview                139.35     0.00%     32.1    23.2   0.27     3 (14.1 m)
+Battery-aware MPC, const-accel preview                140.08     0.28%     32.3    24.0   0.43     3 (8.2 m)
+Battery-aware MPC, oracle preview (non-causal ceiling)  135.95    -1.78%     32.4    24.2   0.22     0 (0.1 m)
+--- median % vs MPC(const-speed) by dynamics tercile
+calm     acc -0.34% smc -0.21% sac -0.30% caccel 0.11% oracle -0.25%
+medium   acc -0.71% smc -0.44% sac 0.13% caccel 0.41% oracle -1.81%
+dynamic  acc -0.63% smc -0.33% sac -0.05% caccel 0.53% oracle -4.40%
+SAC vs ACC median 0.28% Wilcoxon p=1.3e-06

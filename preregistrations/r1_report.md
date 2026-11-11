@@ -1,0 +1,6 @@
+# Rescue R1 result (Sonnet, 2026-11-08) — FAIL, as pre-registered: no further ML rescues
+
+Method: forecast = beta*(previous forecast shifted one step) + (1-beta)*(v_t + alpha*ML_rel). Grid alpha {.25,.5,.75} x beta {0,.5,.8}, 43 fold-0 windows, models LGBM and BiLSTM (fold-0 predictions trained on folds != 0). Selection rule (set by Opus): min [mean Wh/km_adj + 2*mean shortfall m] subject to jerk <= const-accel jerk (0.487). Both models picked alpha .5, beta .5 (results/gate3b/r1_tune_summary.txt). Frozen; run once on 160 test windows (results/gate3b/r1_test_summary.txt).
+
+Test (vs best kinematic per window): LGBM median +0.03%, mean +0.09%, better in 66/160; BiLSTM +0.01% / +0.03%, 74/160. Headroom recovered: LGBM -3.9% (dynamic tercile -2.8%), BiLSTM -2.1% (-2.0%). Pass criteria (>=25% dynamic tercile, median <= kinematic, unsafe windows <= kinematic): FAILED. Safety: LGBM 3 unsafe windows (max 8.8 m), BiLSTM 4 (11.3 m) vs kinematic 3 (14.1/8.2 m); the safety edge seen with raw ML disappeared. Jerk 0.33/0.32 (fixed). Oracle: -1.72% median, 0 unsafe.
+Reading: smoothing removed the harm but the shrunk forecasts carry no information beyond const-speed/const-accel; learned on-board forecasts add nothing for control here. Locked story applies (admin/stepA_decision.md).

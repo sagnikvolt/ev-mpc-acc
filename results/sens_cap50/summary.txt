@@ -1,0 +1,8 @@
+-- cap 35 (existing) --
+oracle vs ACC cap35 n 160 median -2.83 mean -4.36 p 1.6e-24 {'calm': np.float64(-0.45), 'medium': np.float64(-3.06), 'dynamic': np.float64(-6.92)} unsafe B 0
+-- cap 50 --
+oracle vs ACC cap50 n 160 median -2.65 mean -4.15 p 3.4e-24 {'calm': np.float64(-0.41), 'medium': np.float64(-2.9), 'dynamic': np.float64(-6.12)} unsafe B 0
+ACC energy cap35 vs cap50 (mean Wh/km): 142.84 142.7 | oracle 137.12 137.35
+-- S1b --
+cap35 MPC-map-L vs ACC-map n 42 median -7.40 better 38 p 2.5e-11 unsafe 0 maxshort 0.15 cross_excess mean 0.00 | ACC-map excess 1.22
+cap50 MPC-map-L vs ACC-map n 42 median -6.97 better 38 p 2.0e-11 unsafe 0 maxshort 0.15 cross_excess mean 0.00 | ACC-map excess 1.22
