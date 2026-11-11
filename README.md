@@ -1,6 +1,6 @@
 # Battery-aware MPC adaptive cruise control for EVs: open data, code and pre-registrations
 
-Code, pre-registered test rules, result tables and derived data behind the paper on battery-aware model-predictive adaptive cruise control (ACC) for battery-electric vehicles (BMW i3 physics, real lead-vehicle trajectories from OpenACC). Status: **v0.1. A Zenodo DOI is assigned on archiving and will be added here and in `CITATION.cff`.**
+Code, pre-registered test rules, result tables and derived data behind the paper on battery-aware model-predictive adaptive cruise control (ACC) for battery-electric vehicles (BMW i3 physics, real lead-vehicle trajectories from OpenACC). Status: **v0.1**, archived on Zenodo: [doi:10.5281/zenodo.24146961](https://doi.org/10.5281/zenodo.24146961).
 
 ## What is in this package
 | Folder | Content |

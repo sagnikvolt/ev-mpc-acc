@@ -20,4 +20,5 @@ authors:
   - family-names: Chatterjee
     given-names: Debasis
 license: MIT
+doi: 10.5281/zenodo.24146961
 repository-code: "https://github.com/sagnikvolt/ev-mpc-acc"
