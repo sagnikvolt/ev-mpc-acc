@@ -7,7 +7,18 @@ authors:
   - family-names: Nath
     given-names: Sagnik Kumar
     affiliation: "Institute of Engineering & Management (IEM), Kolkata"
-  # TODO: add the other authors and ORCIDs agreed with sir before upload
+  - family-names: Dhawa
+    given-names: Soumya Tirtha
+  - family-names: Dasgupta
+    given-names: Somsuddha
+  - family-names: Debnath
+    given-names: Shuvankar
+  - family-names: Pradhan
+    given-names: Soham
+  - family-names: Pal
+    given-names: Srija
+  - family-names: Chatterjee
+    given-names: Debasis
 license: MIT
 repository-code: "https://github.com/sagnikvolt/ev-mpc-acc"
 doi: "TODO: assigned by Zenodo on upload"

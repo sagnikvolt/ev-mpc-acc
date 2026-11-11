@@ -1,6 +1,6 @@
 # Battery-aware MPC adaptive cruise control for EVs: open data, code and pre-registrations
 
-Code, pre-registered test rules, result tables and derived data behind the paper on battery-aware model-predictive adaptive cruise control (ACC) for battery-electric vehicles (BMW i3 physics, real lead-vehicle trajectories from OpenACC). Status: **DRAFT for Zenodo upload. The DOI is assigned only on upload; the author list is pending (see TODO in CITATION.cff and zenodo_metadata.json).**
+Code, pre-registered test rules, result tables and derived data behind the paper on battery-aware model-predictive adaptive cruise control (ACC) for battery-electric vehicles (BMW i3 physics, real lead-vehicle trajectories from OpenACC). Status: **v0.1. A Zenodo DOI is assigned on archiving and will be added here and in `CITATION.cff`.**
 
 ## What is in this package
 | Folder | Content |
@@ -45,8 +45,11 @@ The rule files in `preregistrations/` were written before the corresponding runs
 ## Acknowledgements
 Vehicle model fitted to the BMW i3 dataset of Steinstraeter, Buberger and Trifonov, "Battery and Heating Data in Real Driving Cycles", IEEE DataPort, 2020, doi:10.21227/6jr9-5235 (CC BY 4.0). Raw files are not redistributed. See `DATA_SOURCES.md` for all data sources and citations.
 
+## Authors
+Sagnik Kumar Nath, Soumya Tirtha Dhawa, Somsuddha Dasgupta, Shuvankar Debnath, Soham Pradhan, Srija Pal, Debasis Chatterjee.
+
 ## Licence
-Code: MIT (`LICENSE`). Our own result tables and derived files: CC BY 4.0. Third-party data keeps its own terms (DATA_SOURCES.md). **TODO before upload: confirm licences and author list with all co-authors.**
+Code: MIT (`LICENSE`). Our own result tables and derived files: CC BY 4.0. Third-party data keeps its own terms (DATA_SOURCES.md). Licence holder: Sagnik Kumar Nath.
 
 ## Live demo (optional)
 `aws_demo/` holds a small web demo (AWS Lambda container + static page) that runs the same model, ACC and MPC on a speed trace you provide. See `aws_demo/DEPLOY.md`. `python3 aws_demo/test_local.py` checks it against the stored paper results without AWS. A hosted copy is at https://ev.sagniknath.in (research demo only).
