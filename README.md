@@ -46,4 +46,4 @@ The rule files in `preregistrations/` were written before the corresponding runs
 Code: MIT (`LICENSE`). Our own result tables and derived files: CC BY 4.0. Third-party data keeps its own terms (DATA_SOURCES.md). **TODO before upload: confirm licences and author list with all co-authors.**
 
 ## Live demo (optional)
-`aws_demo/` holds a small web demo (AWS Lambda container + static page) that runs the same model, ACC and MPC on a speed trace you provide. See `aws_demo/DEPLOY.md`. `python3 aws_demo/test_local.py` checks it against the stored paper results without AWS.
+`aws_demo/` holds a small web demo (AWS Lambda container + static page) that runs the same model, ACC and MPC on a speed trace you provide. See `aws_demo/DEPLOY.md`. `python3 aws_demo/test_local.py` checks it against the stored paper results without AWS. A hosted copy is at https://ev.sagniknath.in (research demo only).
