@@ -1,7 +1,7 @@
 {
   "title": "Battery-aware MPC adaptive cruise control for EVs: code, pre-registered tests, results and derived data",
   "upload_type": "software",
-  "description": "Python and MATLAB code, pre-registered test rules and reports, result tables and derived 10 Hz lead-vehicle speed windows used in a study of battery-aware model-predictive ACC for battery-electric vehicles. Raw third-party data (OpenACC, BMW i3, Renault Zoe) are not included; see DATA_SOURCES.md. Code is MIT-licensed; our own result tables and derived files are CC BY 4.0 (see README).",
+  "description": "Python and MATLAB code, pre-registered test rules and reports, result tables and derived 10 Hz lead-vehicle speed windows used in a study of battery-aware model-predictive ACC for battery-electric vehicles. Raw third-party data (OpenACC, BMW i3, Renault Zoe) are not included; see DATA_SOURCES.md. Version 0.2 adds the comparison with real recorded follower cars (normal car vs our design car), safe reinforcement learning with a safety filter, input-feature importance and learning-curve tables, a controller datasheet, and the regen-efficiency 0.65 re-runs. Code is MIT-licensed; our own result tables and derived files are CC BY 4.0 (see README).",
   "creators": [
     {
       "name": "Nath, Sagnik Kumar",
@@ -33,7 +33,9 @@
     "electric vehicle",
     "energy efficiency",
     "V2V",
-    "pre-registration"
+    "pre-registration",
+    "safe reinforcement learning",
+    "real-vehicle comparison"
   ],
   "related_identifiers": [
     {
@@ -52,5 +54,5 @@
       "scheme": "doi"
     }
   ],
-  "version": "0.1"
+  "version": "0.2"
 }
