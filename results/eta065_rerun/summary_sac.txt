@@ -1,0 +1,55 @@
+SAC re-trained under eta 0.65 | 160 test windows | KE-adjusted Wh/km | changes are paired per window (median)
+
+controller                 Wh/km    vs ACC   vs MPCc  vs bestK  unsafe  gap m   jerk
+ACC                       142.84     0.00%    -0.47%    -0.45%       0   39.6   0.21
+MPC const-speed           144.10     0.47%     0.00%     0.00%       0   32.0   0.27
+MPC oracle                137.12    -2.83%    -3.67%    -3.61%       0   32.6   0.22
+SAC seed 42 (primary)     144.28     0.67%     0.09%     0.09%       2   45.9   0.42
+SAC seed 43               143.79    -0.03%    -0.71%    -0.56%       6   45.2   0.40
+SAC seed 44               147.01     1.46%     0.45%     0.54%      37   37.5   0.45
+
+Pre-registered rule: SAC beats ACC only if median vs ACC <= -1.0% AND Wilcoxon p < 0.05 AND unsafe windows <= ACC unsafe (0).
+seed 42: ckpt 100000 steps | median vs ACC +0.67% mean +1.70% p=0.00147 | unsafe 2 (ACC 0) | headroom recovered all -5.5% dynamic -9.6% | BEATS ACC: False
+seed 43: ckpt 120000 steps | median vs ACC -0.03% mean +1.89% p=0.109 | unsafe 6 (ACC 0) | headroom recovered all 1.7% dynamic -0.8% | BEATS ACC: False
+seed 44: ckpt 140000 steps | median vs ACC +1.46% mean +3.69% p=2.97e-20 | unsafe 37 (ACC 0) | headroom recovered all -45.7% dynamic -51.4% | BEATS ACC: False
+
+Across seeds: median-vs-ACC min -0.03% / median 0.67% / max 1.46%
+
+Seed 42 fold-0 checkpoint scores:
+ steps   whkm  short  unsafe  score
+ 20000 150.74   0.00       0 150.74
+ 40000 153.11   0.00       0 153.11
+ 60000 153.71   0.00       0 153.71
+ 80000 151.95   0.12       6 152.19
+100000 148.45   0.03       1 148.50
+120000 150.22   0.01       0 150.23
+140000 154.04   0.08       1 154.20
+160000 153.84   0.03       1 153.90
+180000 148.63   0.35       7 149.33
+200000 151.02   0.02       1 151.06
+
+Seed 43 fold-0 checkpoint scores:
+ steps   whkm  short  unsafe  score
+ 20000 150.44   0.01       1 150.46
+ 40000 148.27   0.37       8 149.01
+ 60000 145.04   0.19       3 145.43
+ 80000 146.38   0.13       4 146.64
+100000 145.36   0.05       2 145.46
+120000 143.83   0.04       1 143.90
+140000 144.60   0.12       5 144.83
+160000 146.39   0.01       0 146.40
+180000 148.90   0.08       4 149.07
+200000 147.63   0.01       1 147.66
+
+Seed 44 fold-0 checkpoint scores:
+ steps   whkm  short  unsafe  score
+ 20000 152.75   0.44       7 153.64
+ 40000 153.65   0.84       9 155.33
+ 60000 152.99   0.79       9 154.57
+ 80000 150.44   0.43       9 151.30
+100000 148.53   0.50       9 149.53
+120000 158.90   0.30       7 159.51
+140000 148.47   0.31       8 149.10
+160000 149.09   0.59       8 150.27
+180000 151.10   0.37       8 151.84
+200000 149.50   0.40       8 150.30

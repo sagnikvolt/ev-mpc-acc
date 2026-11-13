@@ -1,0 +1,6 @@
+dataset,unit,samples,trips_or_segments,hours,use
+"BMW i3 (TU Munich, measured battery power) - energy-model data",samples at 2 Hz,201852,68,28.0,"physics fit, residual ML, feature importance, learning curve"
+Renault Zoe (public trip data),samples at 1 Hz,400216,471,111.2,"second-vehicle dataset (cleaned, trip-wise split); not used in the tables here"
+"OpenACC (JRC real car-following, 10 Hz)",samples at 10 Hz,2796734,961,77.7,"lead-vehicle forecasting, controller tests"
+"OpenACC 120 s windows, folds 0-4 (all)",windows,203,70,6.8,"closed-loop experiments (43 tune, 160 test)"
+"V2V 120 s windows (30 tune, 90 test) from 961 segments",windows,120,961,4.0,V2V forecasting and closed-loop check

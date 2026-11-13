@@ -1,0 +1,4 @@
+MPC QP solve time per call (ms), eta 0.65, single process, 30 windows per preview; CPU: Intel64 Family 6 Model 154 Stepping 3, GenuineIntel (16 logical cores), Windows-10-10.0.26300-SP0
+const   n=  6270 mean 39.2 median 30.9 p95 87.4 p99 116.6 max 170.7
+oracle  n=  6270 mean 33.2 median 27.7 p95 71.6 p99 96.3 max 147.2
+all     n= 12540 mean 36.2 median 29.3 p95 80.2 p99 109.5 max 170.7

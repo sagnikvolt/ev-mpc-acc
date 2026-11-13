@@ -1,0 +1,15 @@
+panel,vehicle,n,whkm,vs_recorded,gap_m,jerk,unsafe,compute
+All 160 test windows,Normal car: recorded real follower (replayed through the same battery model),160,150.1281668455368,0 (reference),34.751384176895456,0.22658478494333023,n/a,-
+All 160 test windows,"Tuned ACC (simulated, conventional controller)",160,142.83933457506083,-3.01% (median),39.60439050253672,0.20550764239136704,0,not timed (simple formula / small network)
+All 160 test windows,Sliding-mode controller (SMC),160,143.86233707438203,-2.79% (median),39.517465351690625,0.24223640549711947,0,not timed (simple formula / small network)
+All 160 test windows,"Plain SAC (RL, seed 42)",160,144.28339812609934,-2.28% (median),45.85394250542643,0.4169105732098407,2,not timed (simple formula / small network)
+All 160 test windows,Our design car: battery-aware MPC (causal),160,144.10179885659122,-2.47% (median),31.961096999923768,0.2659744524641608,0,"median 29 ms, p99 110 ms"
+All 160 test windows,MPC oracle (non-causal ceiling),160,137.11879391052815,-5.99% (median),32.5567455066304,0.2167799002272716,0,n/a (needs the lead car's future)
+All 160 test windows,"Safe SAC (RL + safety filter, seed 42)",160,144.38949132900777,-2.50% (median),43.24693878429208,0.27357443693735667,0,not timed (simple formula / small network)
+79 windows with a commercial ACC follower,Normal car: recorded real follower (replayed through the same battery model),79,176.5985252679475,0 (reference),40.04550481385876,0.20701724149208622,n/a,-
+79 windows with a commercial ACC follower,"Tuned ACC (simulated, conventional controller)",79,169.3424296273785,-2.82% (median),49.98910877229658,0.20117295279967098,0,not timed (simple formula / small network)
+79 windows with a commercial ACC follower,Sliding-mode controller (SMC),79,170.13064014736034,-2.27% (median),49.98678057947855,0.2320957140332279,0,not timed (simple formula / small network)
+79 windows with a commercial ACC follower,"Plain SAC (RL, seed 42)",79,168.73047011895721,-2.86% (median),59.054781902685,0.3977894632806227,0,not timed (simple formula / small network)
+79 windows with a commercial ACC follower,Our design car: battery-aware MPC (causal),79,171.23833367816198,-1.89% (median),41.26964003921566,0.24070954025237412,0,"median 29 ms, p99 110 ms"
+79 windows with a commercial ACC follower,MPC oracle (non-causal ceiling),79,164.02554243175274,-5.49% (median),41.811377039164576,0.19157793906082046,0,n/a (needs the lead car's future)
+79 windows with a commercial ACC follower,"Safe SAC (RL + safety filter, seed 42)",79,169.47524697771703,-2.80% (median),57.81215850400128,0.2505378779028782,0,not timed (simple formula / small network)

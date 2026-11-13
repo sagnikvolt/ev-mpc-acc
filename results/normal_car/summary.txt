@@ -1,0 +1,41 @@
+Normal car (recorded follower, replayed through frozen BMW i3 model, eta 0.65) vs our design car. 160 test windows, KE-adjusted Wh/km. Negative = our car uses less.
+Groups: ACC-driven 79, human 40, mixed 41. Primary smoothing 1.0 s moving average; raw and 2.0 s are sensitivity only.
+
+PRIMARY and secondary groups: MPC-const (our design car) vs recorded follower (1.0 s smoothing)
+ACC-driven (primary)   n= 79  recorded mean 176.6 | MPC-const mean 171.2 | median change -1.89% | mean change -2.99% | MPC lower in 59/79 | Wilcoxon p=3.35e-09
+human-driven           n= 40  recorded mean 95.1 | MPC-const mean 87.3 | median change -5.96% | mean change -6.68% | MPC lower in 32/40 | Wilcoxon p=5.28e-07
+mixed                  n= 41  recorded mean 152.8 | MPC-const mean 147.3 | median change -2.54% | mean change -3.72% | MPC lower in 33/41 | Wilcoxon p=5.76e-06
+all 160                n=160  recorded mean 150.1 | MPC-const mean 144.1 | median change -2.47% | mean change -4.10% | MPC lower in 124/160 | Wilcoxon p=5.92e-18
+
+PASS RULE (79 ACC-driven windows): median <= -1.0%: True (-1.89%) ; p<0.05: True (3.35e-09) ; MPC unsafe windows == 0: True (0)  =>  PASS
+
+Sensitivity (ACC-driven, MPC-const vs recorded): raw median -5.88%; 1.0 s median -1.89%; 2.0 s median -1.57%
+
+Other arms vs recorded follower, median change %, by group (1.0 s smoothing):
+group             sim ACC  MPC const     oracle
+ACC-driven         -2.82%     -1.89%     -5.49%
+human              -5.58%     -5.96%    -15.03%
+mixed              -2.92%     -2.54%     -5.81%
+all                -3.01%     -2.47%     -5.99%
+
+NOTE: group means of Wh/km are NOT comparable across groups (different roads and traffic in each group); only within-window comparisons (columns above) are valid.
+
+Datasheet (means over groups). gap = mean following gap (m) where recorded gap exists; jerk RMS (m/s3); unsafe = windows with shortfall > 0.5 m vs our safe-gap rule
+group             n rec Wh/km   ACCsim      MPC   oracle  rec gap |  ACC gap  MPC gap rec jerk
+ACC-driven       79    176.6    169.3    171.2    164.0     40.0 |     50.0     41.3     0.21
+human            40     95.1     87.2     87.3     79.7      nan |     20.4     15.2     0.24
+mixed            41    152.8    146.0    147.3    141.3     24.6 |     38.3     30.3     0.26
+all             160    150.1    142.8    144.1    137.1     34.8 |     39.6     32.0     0.23
+jerk RMS: recorded 0.23 | sim ACC 0.21 | MPC 0.27 ; unsafe windows (shortfall>0.5 m): MPC 0, sim ACC 0, recorded followers 61 of 120 with gap data (descriptive, different gap definition)
+recorded gap coverage: gap present (>50% of samples) in 120 of 160 windows
+Gap-matched check (windows with recorded gap, ACC-driven, n=79): median MPC change -1.89%; recorded mean gap 40.0 m vs MPC 41.3 m
+
+Per follower car model (ACC-driven + human, recorded mean Wh/km, MPC change median %):
+  Ford(S-Max)                  n=  9 recorded 182.2  MPC -2.04%
+  Hyundai                      n= 25 recorded 187.2  MPC -2.35%
+  Hyundai(Ioniqhybrid)         n= 57 recorded 158.0  MPC -2.40%
+  JAGUAR_I_PACE                n=  3 recorded 98.0  MPC -9.56%
+  MAZDA_3                      n= 22 recorded 92.1  MPC -1.81%
+  Mitsubishi(OutlanderPHEV)    n= 12 recorded 162.9  MPC -2.44%
+  TESLA_MODELX                 n= 15 recorded 98.8  MPC -6.97%
+  Volvo(XC40)                  n= 17 recorded 172.7  MPC -1.95%

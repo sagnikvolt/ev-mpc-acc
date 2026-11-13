@@ -1,0 +1,58 @@
+Safe RL at eta 0.65 | filter gamma 0.1 | 160 test windows | KE-adjusted Wh/km | changes paired per window (median)
+
+controller                                  Wh/km   vs ACC  vs MPCc p vs ACC unsafe maxshort  gap m    jerk   filter%
+ACC (tuned)                                142.84    0.00%   -0.47%      nan      0    0.00   39.6    0.21        -
+MPC const-speed                            144.10    0.47%    0.00%  3.5e-12      0    0.18   32.0    0.27        -
+plain SAC seed 42                          144.28    0.67%    0.09%  1.5e-03      2    1.09   45.9    0.42        -
+plain SAC seed 43                          143.79   -0.03%   -0.71%  1.1e-01      6    1.28   45.2    0.40        -
+plain SAC seed 44                          147.01    1.46%    0.45%  3.0e-20     37    2.19   37.5    0.45        -
+B1 SAC+filter (no retrain) seed 42         144.16    0.61%   -0.01%  3.4e-03      0    0.00   45.9    0.41    0.84%
+B1 SAC+filter (no retrain) seed 43         143.78   -0.04%   -0.72%  1.4e-01      0    0.00   45.3    0.40    0.43%
+B1 SAC+filter (no retrain) seed 44         146.86    1.41%    0.45%  1.0e-19      0    0.00   37.5    0.44    2.39%
+B2 safe-SAC seed 42 (PRIMARY)              144.39    0.52%   -0.22%  5.5e-06      0    0.07   43.2    0.27   24.15%
+B2 safe-SAC seed 43                        144.55    1.17%    0.45%  6.6e-22      0    0.00   38.4    0.41    4.23%
+B2 safe-SAC seed 44                        142.62    0.23%   -0.37%  7.0e-01      0    0.07   46.8    0.33   11.58%
+
+PASS RULE (B2 seed 42 vs ACC): median <= -1.0%, Wilcoxon p<0.05, 0 unsafe windows
+median 0.52% (<=-1: False) ; p 5.48e-06 (<.05: True) ; unsafe 0 (==0: True) => FAIL
+vs recorded ACC-driven followers (79 windows): median -2.80%, p 5.01e-12
+filter infeasible steps total: 3 ; mean gap safe-SAC 43.2 m vs ACC 39.6 m
+
+fold-0 scores seed 42 (chunk, steps, Wh/km, shortfall, unsafe, filter share, score):
+ chunk  steps    whkm  short  unsafe    iv   score
+     1  20000 161.551  0.039       0 0.201 161.628
+     2  40000 152.138  0.012       0 0.239 152.162
+     3  60000 148.257  0.001       0 0.064 148.259
+     4  80000 148.969  0.009       0 0.131 148.988
+     5 100000 148.950  0.033       0 0.230 149.015
+     6 120000 150.413  0.037       0 0.201 150.487
+     7 140000 147.192  0.018       0 0.203 147.228
+     8 160000 147.959  0.037       0 0.235 148.034
+     9 180000 149.743  0.017       0 0.153 149.776
+    10 200000 151.873  0.009       0 0.153 151.892
+
+fold-0 scores seed 43 (chunk, steps, Wh/km, shortfall, unsafe, filter share, score):
+ chunk  steps    whkm  short  unsafe    iv   score
+     1  20000 147.928  0.002       0 0.041 147.931
+     2  40000 153.012  0.000       0 0.043 153.012
+     3  60000 148.353  0.000       0 0.006 148.353
+     4  80000 147.753  0.000       0 0.012 147.753
+     5 100000 147.672  0.000       0 0.047 147.672
+     6 120000 148.436  0.000       0 0.039 148.436
+     7 140000 149.856  0.000       0 0.073 149.856
+     8 160000 153.148  0.000       0 0.069 153.148
+     9 180000 152.797  0.012       0 0.141 152.820
+    10 200000 151.195  0.011       0 0.130 151.218
+
+fold-0 scores seed 44 (chunk, steps, Wh/km, shortfall, unsafe, filter share, score):
+ chunk  steps    whkm  short  unsafe    iv   score
+     1  20000 148.614  0.000       0 0.017 148.614
+     2  40000 148.028  0.011       0 0.148 148.051
+     3  60000 148.264  0.013       0 0.132 148.289
+     4  80000 144.855  0.002       0 0.105 144.860
+     5 100000 145.288  0.010       0 0.135 145.308
+     6 120000 146.201  0.010       0 0.143 146.221
+     7 140000 145.636  0.011       0 0.146 145.657
+     8 160000 148.221  0.012       0 0.146 148.244
+     9 180000 147.376  0.011       0 0.162 147.399
+    10 200000 148.384  0.005       0 0.105 148.394
